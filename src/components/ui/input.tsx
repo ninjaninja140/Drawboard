@@ -1,5 +1,3 @@
-
-
 import { cn } from '@/lib/utils.ts';
 import { Input as InputPrimitive } from '@base-ui/react/input';
 import type * as React from 'react';
@@ -9,6 +7,10 @@ export type InputProps = Omit<InputPrimitive.Props & React.RefAttributes<HTMLInp
 	unstyled?: boolean;
 	nativeInput?: boolean;
 };
+
+/** Native elements can't take Base UI's state-driven `className`/`style` callbacks or its `render` prop. */
+type NativeInputProps = Omit<InputProps, 'className' | 'render' | 'size' | 'style'> &
+	Pick<React.ComponentPropsWithoutRef<'input'>, 'className' | 'size' | 'style'>;
 
 export function Input({
 	className,
@@ -44,7 +46,7 @@ export function Input({
 					className={inputClassName}
 					data-slot='input'
 					size={typeof size === 'number' ? size : undefined}
-					{...props}
+					{...(props as NativeInputProps)}
 				/>
 			) : (
 				<InputPrimitive
@@ -59,4 +61,3 @@ export function Input({
 }
 
 export { InputPrimitive };
-

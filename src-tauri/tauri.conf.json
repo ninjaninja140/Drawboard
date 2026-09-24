@@ -1,21 +1,24 @@
 {
 	"$schema": "https://schema.tauri.app/config/2",
-	"productName": "example app",
+	"productName": "Drawboard Studio",
 	"version": "0.1.0",
-	"identifier": "com.bracketed.app",
+	"identifier": "com.drawboard.studio",
 	"build": {
-		"beforeDevCommand": "deno task dev",
+		"beforeDevCommand": "yarn dev",
 		"devUrl": "http://localhost:1420",
-		"beforeBuildCommand": "deno task build",
+		"beforeBuildCommand": "yarn build",
 		"frontendDist": "../dist"
 	},
 	"app": {
 		"windows": [
 			{
-				"decorations": true,
-				"title": "Application",
-				"width": 800,
-				"height": 600
+				"decorations": false,
+				"title": "Drawboard Studio",
+				"width": 1440,
+				"height": 900,
+				"minWidth": 640,
+				"minHeight": 480,
+				"center": true
 			}
 		],
 		"security": {

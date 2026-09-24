@@ -10,7 +10,7 @@
 		"includes": [
 			"./src/**/*",
 			"./biome.json",
-			"./deno.json",
+			"./package.json",
 			"./tsconfig.json",
 			"./components.json",
 			"./vite.config.ts"
